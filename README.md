@@ -24,8 +24,8 @@ AI 기반 성견 이미지 생성 및 유기견 이미지 검색 서비스
 - 이미지 검색: CLIP 기반 임베딩 + YOLOv8 품종/색 정보 추출
 - 색 정보 매칭: CIELAB ΔE 활용
 - 아키텍처 상세 이미지:
-  - docs/architecture_generation.png
-  - docs/architecture_search.png
+  - docs/architecture_generation.png  ← 첫 이미지 생성 흐름
+  - docs/architecture_search.png      ← 두번째 검색 흐름
 
 ---
 
