@@ -1,0 +1,220 @@
+/* -------- Page wrappers -------- */
+.writePage {
+  background-color: #fff;
+  color: #000;
+}
+
+.pagePadding {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #fff;
+  padding: 4rem 2rem;
+  color: #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* -------- Containers -------- */
+.writeContainer {
+  max-width: 800px;
+  margin: 2rem auto 3rem;
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.writeForm {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+/* -------- Typography / labels -------- */
+.formLabel {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+/* -------- Inputs -------- */
+.writeInput,
+.writeTextarea,
+.writeSelect {
+  width: 100%;
+  padding: 0.8rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+  background-color: #fff;
+  color: #000;
+  box-sizing: border-box;
+}
+
+.inputDimmed {
+  background-color: #f7f7f7;
+}
+
+/* 두 개의 선택 박스를 나란히 배치할 때 */
+.writeRow {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.rowWrap {
+  flex-wrap: wrap;
+}
+
+.col {
+  flex: 1;
+}
+
+.rowEqual {
+  display: flex;
+  gap: 1rem; 
+}
+
+.rowEqual > .col {
+  flex: 1; 
+}
+
+/* 2열 그리드 레이아웃 */
+.grid2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;              
+}
+
+.field > .writeInput,
+.field > .writeSelect,
+.field > .writeTextarea {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+}
+
+/* -------- Buttons -------- */
+.writeBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.8rem 1.6rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  transition: opacity 0.15s ease;
+}
+
+.btnDisabled,
+.btnIsLoading {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.btnPrimary {
+  background-color: #000;
+  color: #fff;
+}
+
+.btnGhost {
+  background-color: transparent;
+  color: #000;
+  border: 1px solid #000;
+  padding: 0.8rem 1.2rem;
+}
+
+/* 우측 정렬 버튼 그룹 */
+.actionsRight {
+  display: flex;
+  gap: 0.8rem;
+  justify-content: flex-end;
+  margin-top: 0.4rem;
+  text-align: right;
+}
+
+/* -------- Back button -------- */
+.backBtn {
+  align-self: flex-start;
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #000;
+  cursor: pointer;
+}
+
+/* -------- Fieldset (disabled box) -------- */
+.fieldsetDisabled {
+  border: 1px dashed #aaa;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.fieldsetDisabled legend {
+  padding: 0 0.5rem;
+  color: #666;
+}
+
+.fieldsetDisabled .note {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* -------- Drag & Drop area -------- */
+.dropzone {
+  border: 2px dashed #ccc;
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  cursor: pointer;
+  background-color: #f9f9f9;
+}
+
+.dropzone img {
+  max-width: 100%;
+  max-height: 300px;
+  object-fit: contain;
+}
+
+/* -------- Small helpers -------- */
+.mt6 {
+  margin-top: 6rem;
+}
+.mb1 {
+  margin-bottom: 1rem;
+}
+.textMuted {
+  color: #555;
+}
+.checkboxRow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* 공통 textarea 스타일 */
+.writeTextarea {
+  resize: vertical;
+  min-height: 220px;
+  line-height: 1.5;
+}
+
+/* 특징 입력 textarea (짧은 높이 전용) */
+.writeTextareaSmall {
+  min-height: 100px;
+}
+
+/* 숨겨진 파일 업로드 input */
+.inputFileHidden {
+  display: none;
+}

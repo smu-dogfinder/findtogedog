@@ -1,0 +1,288 @@
+/* ====== 기본 레이아웃 ====== */
+.pageContainer,
+.detailPage,
+.detailContainer {
+  padding: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  background-color: #fff;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+}
+
+.detailContainer {
+  width: 100%;
+  min-height: 100vh;
+  color: #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.detailInner {
+  width: 100%;
+  max-width: 800px;
+}
+
+/* 제목/메타 정보 */
+.detailTitle {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+.detailMeta {
+  margin-bottom: 1rem;
+  color: #555;
+  font-size: 0.9rem;
+}
+.detailContent {
+  white-space: pre-wrap;
+  line-height: 1.6;
+  font-size: 1rem;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  padding: 1.5rem 0;
+  margin-bottom: 1.5rem;
+}
+
+/* ====== 버튼 ====== */
+.btn {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+.btn:active {
+  transform: scale(0.97);
+}
+.btnPrimary {
+  background-color: #000;
+  color: #fff;
+}
+.btnPrimary:hover {
+  background-color: #333;
+}
+.btnSecondary {
+  background-color: #555;
+  color: #fff;
+}
+.btnSecondary:hover {
+  background-color: #333;
+}
+.btnDanger {
+  background-color: #e74c3c;
+  color: #fff;
+}
+.btnDanger:hover {
+  background-color: #c0392b;
+}
+.btnOutline {
+  background-color: #f8f8f8;
+  border: 1px solid #000;
+  color: #000;
+  font-weight: 700;
+}
+.btnOutline:hover {
+  background-color: #ddd;
+}
+.smallBtn {
+  font-size: 0.8rem;
+  padding: 0.25rem 0.5rem;
+}
+
+/* 버튼 그룹 */
+.detailButtons {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+
+/* ====== 상단 바 ====== */
+.detailTopbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.detailActions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* ====== 이미지 ====== */
+.detailHero {
+  text-align: center;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+}
+.detailHero img {
+  width: 500px;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 10px;
+  max-width: 100%;
+}
+.reportImagePlaceholder {
+  text-align: center;
+  margin: 0 auto 1rem auto;
+  max-width: 300px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  color: #888;
+}
+.reportNotice {
+  text-align: center;
+  margin-top: 4rem;
+}
+
+/* ====== 섹션 ====== */
+.detailSection {
+  margin-bottom: 2rem;
+}
+.detailSectionTitle {
+  border-bottom: 2px solid #444;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* 표 */
+.detailTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+.detailTr {
+  border-bottom: 1px solid #ddd;
+}
+.detailTh {
+  width: 180px;
+  background-color: #f8f8f8;
+  text-align: left;
+  padding: 0.75rem;
+  font-weight: 700;
+  border-right: 1px solid #ddd;
+  vertical-align: top;
+}
+.detailTd {
+  padding: 0.75rem;
+  vertical-align: top;
+  white-space: pre-line;
+}
+
+/* ====== InquiryDetail ====== */
+.loadingBox {
+  padding: 2rem;
+  text-align: center;
+}
+.errorBox {
+  padding: 2rem;
+  text-align: center;
+  color: #b00020;
+}
+.replyContainer {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 6px;
+  margin-top: 1rem;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  position: relative;
+}
+.replyTextarea {
+  width: 100%;
+  padding: 0.5rem;
+  resize: none;
+  overflow: hidden;
+}
+.replyActions {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  gap: 8px;
+}
+.textMuted {
+  color: #999;
+  font-size: 0.9rem;
+}
+
+/* ====== SearchResultPage ====== */
+.resultContainer {
+  padding: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.previewSection {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  margin-bottom: 3rem;
+}
+.card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 1rem;
+  width: 300px;
+  text-align: center;
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.05);
+}
+.cardImage {
+  width: 100%;
+  object-fit: contain;
+}
+.arrow {
+  align-self: center;
+  font-size: 2rem;
+}
+.dogGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 1rem 0;
+}
+.dogCard {
+  width: 100%;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  transition: transform 0.2s;
+}
+.dogCard:hover {
+  transform: scale(1.02);
+}
+.dogCardImage {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.dogCardTitle {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+}
+.dogCardDesc {
+  font-size: 0.9rem;
+  color: #555;
+}
+.dogCardLink {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ====== NoticeDetail ====== */
+.fileList {
+  margin-top: 0.5rem;
+}

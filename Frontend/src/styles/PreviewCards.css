@@ -1,0 +1,107 @@
+.preview-card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 1.5rem;
+  background-color: #fafafa;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  height: 280px;
+}
+
+.preview-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+
+.preview-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.preview-list {
+  padding: 0;
+  list-style: none;
+  margin: 0;
+  flex-grow: 1;
+  margin-bottom: 1rem;
+}
+
+.preview-list-item {
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: baseline;
+}
+
+.preview-dot {
+  display: inline-block;
+  width: 1rem;
+}
+
+.preview-link {
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+}
+
+.preview-meta {
+  color: #555;
+  font-size: 0.92rem;
+  font-weight: 400;
+}
+
+.preview-footer {
+  text-align: right;
+  margin-top: auto;
+}
+
+.preview-more,
+.preview-linkbutton {
+  font-size: 0.95rem;
+  color: #000;
+  font-weight: bold;
+  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.loading-text { color: #666; }
+.muted-text { color: #888; }
+
+/* AdoptPreview 전용 썸네일 그리드 */
+.preview-dog-list {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.preview-dog-card {
+  width: 80px;
+  text-align: center;
+}
+
+.preview-img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+/* ShelterSearchCard 버튼 통일 */
+.preview-solid-btn {
+  margin-top: auto;
+  padding: 0.6rem 1.2rem;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  font-weight: bold;
+  cursor: pointer;
+}

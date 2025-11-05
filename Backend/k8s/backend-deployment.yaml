@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dogfinder-backend-deployment
+  labels:
+    app: dogfinder
+    tier: backend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: dogfinder
+      tier: backend
+  template:
+    metadata:
+      labels:
+        app: dogfinder
+        tier: backend
+    spec:
+      containers:
+        - name: backend-container
+          image: contest96.kr.ncr.ntruss.com/dogfinder-backend:$CODEBUILD_RESOLVED_SOURCE_VERSION
+          ports:
+            - containerPort: 8080
+          resources:
+            limits:
+              memory: "1024Mi"
+              cpu: "500m"
+          env:
+            # 기본 실행 프로필
+            - name: SPRING_PROFILES_ACTIVE
+              value: "prod"
+
+            # AI 서버 주소 (내부 DNS)
+            - name: AI_BASE_URL
+              value: "http://ai-service:8000"
+
+            # DB 접속 URL만 표시 (유저/비밀번호는 Secret에서)
+            - name: DB_URL
+              value: "jdbc:mysql://<mysql-host>:3306/animal_shelter"

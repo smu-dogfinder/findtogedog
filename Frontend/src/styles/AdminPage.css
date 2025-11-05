@@ -1,0 +1,290 @@
+.adminpage-root {
+  background-color: #fff;
+}
+.adminpage-banner {
+  position: relative;
+  width: 100%;
+}
+
+/* 기존 MyPage 레이아웃을 활용 */
+.mypage-wrapper {
+  display: grid;
+  grid-template-columns: 280px 2fr;
+  gap: 20px;
+  padding: 16px 0px 40px;
+}
+
+.left-profile .profile-summary {
+  background: #fafafa;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.right-content {
+  min-width: 0;
+  flex: 3;
+}
+
+/* 탭 바 */
+.mypage-tabs .tab {
+  display: flex;
+  gap: 8px;
+  border-bottom: 1px solid #e6e6e6;
+  padding-bottom: 8px;
+  justify-content: space-around;
+}
+.mypage-tabs .tab button {
+  flex: 1; 
+  max-width: 200px;
+  padding: 8px 14px;
+  border: 1px solid transparent;
+  border-radius: 8px 8px 0 0;
+  background: transparent;
+  cursor: pointer;
+  font-weight: 600;
+}
+.mypage-tabs .tab button.active {
+  background: #fff;
+  border-color: #e6e6e6;
+  border-bottom-color: #fff;
+}
+
+/* 테이블 */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  background: #fff;
+}
+.table th, .table td {
+  border: 1px solid #eee;
+  padding: 10px 12px;
+  text-align: left;
+  font-size: 14px;
+}
+.table thead th {
+  background: #fafafa;
+  font-weight: 700;
+}
+.table-actions {
+  display: flex;
+  gap: 6px;
+}
+
+/* 폼 */
+.admin-form {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.admin-form input,
+.admin-form textarea,
+.admin-filter-row select {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 14px;
+}
+.admin-filter-row input{
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 14px;
+  flex: 1;
+}
+.admin-form-actions {
+  display: flex;
+  gap: 8px;
+}
+.admin-filter-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 12px;
+  flex-wrap: nowrap;
+}
+
+/* 통계 카드 */
+.admin-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 12px;
+}
+.admin-stat-card {
+  padding: 12px;
+}
+.admin-stat-label {
+  font-size: 12px;
+  color: #666;
+}
+.admin-stat-value {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+/* 공통 버튼 */
+.button-group {
+  display: flex;
+  gap: 1px; /* 버튼 사이 간격 */
+}
+
+.admin-btn {
+  padding: 6px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background: #f8f9fa;
+  cursor: pointer;
+  font-size: 13px;
+  transition: background 0.2s, border-color 0.2s;
+}
+.admin-btn:hover {
+  background: #e9ecef;
+  border-color: #ccc;
+}
+
+/* 주요 버튼 (검색, 저장, 답변 등) */
+.admin-btn-primary {
+  padding: 8px 14px;
+  background: #f8f9fa;
+  border-color: #000;
+  color: #000;
+}
+.admin-btn-primary:hover {
+  background: #D3D3D3 ;
+  border-color: #000;
+  color: #000;
+}
+
+/* 보조 버튼 (취소, 가리기 등) */
+.admin-btn-secondary {
+  padding: 1px 6px;
+  background: #000;
+  border-color: #000;
+  color: #fff;
+}
+.admin-btn-secondary:hover {
+  background: #5a6268;
+  border-color: #545b62;
+}
+
+button {
+  margin: 20px;
+  outline: none;
+}
+.custom-btn {
+  border: 1px solid #000;
+  border-radius: 0.5px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 00;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+}
+.btn-1 {
+  transition: all 0.3s ease;
+}
+.btn-1:hover {
+   box-shadow:
+   -7px -7px 20px 0px #fff9,
+   -4px -4px 5px 0px #fff9,
+   7px 7px 20px 0px #0002,
+   4px 4px 5px 0px #0001;
+}
+
+.btn-2 {
+  background: #f0f0f0;
+  color: #000;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+.btn-2:hover {
+  background: #000000c9;
+  color: #fff;
+}
+.btn-2:before {
+    position: absolute;
+    content: '';
+    display: inline-block;
+    top: -180px;
+    left: 0;
+    width: 30px;
+    height: 100%;
+    background-color: #fff;
+}
+.btn-2:active{
+  box-shadow:  4px 4px 6px 0 rgba(255,255,255,.3),
+              -4px -4px 6px 0 rgba(116, 125, 136, .2), 
+    inset -4px -4px 6px 0 rgba(255,255,255,.2),
+    inset 4px 4px 6px 0 rgba(0, 0, 0, .2);
+}
+
+.btn-3 {
+  background: #f0f0f0;
+  color: #000;
+  overflow: hidden;
+}
+.btn-3:hover {
+  background: #cccccc;
+  color: #000;
+}
+.btn-3:before {
+    position: absolute;
+    content: '';
+    display: inline-block;
+    top: -180px;
+    left: 0;
+    width: 30px;
+    height: 100%;
+    background-color: #000;
+}
+.btn-3:active{
+  box-shadow:  4px 4px 6px 0 rgba(255,255,255,.3),
+              -4px -4px 6px 0 rgba(116, 125, 136, .2), 
+    inset -4px -4px 6px 0 rgba(255,255,255,.2),
+    inset 4px 4px 6px 0 rgba(0, 0, 0, .2);
+}
+
+.btn-4 {
+  background: #f0f0f0;
+  color: #000;
+  overflow: hidden;
+}
+.btn-4:hover {
+  background: #c82333;
+  color: #fff;
+}
+.btn-4:before {
+    position: absolute;
+    content: '';
+    display: inline-block;
+    top: -180px;
+    left: 0;
+    width: 30px;
+    height: 100%;
+    background-color: #dc3545;
+}
+.btn-4:active{
+  box-shadow:  4px 4px 6px 0 rgba(255,255,255,.3),
+              -4px -4px 6px 0 rgba(116, 125, 136, .2), 
+    inset -4px -4px 6px 0 rgba(255,255,255,.2),
+    inset 4px 4px 6px 0 rgba(0, 0, 0, .2);
+}
+
+.admin-btn-danger {
+  padding: 6px 12px;
+  background: #dc3545;
+  border: 1px solid #dc3545;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.admin-btn-danger:hover {
+  background: #c82333;
+  border-color: #bd2130;
+}
