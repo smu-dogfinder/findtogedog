@@ -23,8 +23,9 @@ AI 기반 성견 이미지 생성 및 유기견 이미지 검색 서비스
 - 이미지 생성: Stable Diffusion + LoRA + IP-Adapter
 - 이미지 검색: CLIP 기반 임베딩 + YOLOv8 품종/색 정보 추출
 - 색 정보 매칭: CIELAB ΔE 활용
-
-(상세 구조는 `/docs/architecture`에 추가 예정)
+- 아키텍처 상세 이미지:
+  - docs/architecture_generation.png
+  - docs/architecture_search.png
 
 ---
 
