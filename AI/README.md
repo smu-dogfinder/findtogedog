@@ -4,11 +4,11 @@
 YOLOv8, CLIP, Stable Diffusion을 활용한 개 품종 검색 및 이미지 생성 시스템입니다. 업로드된 개 이미지를 분석하여 유사한 품종의 개를 찾고, 필요시 AI 이미지 생성 기능을 제공합니다.
 
 ## 주요 기능
-- 🐕 개 품종 자동 인식 (YOLO)
-- 🎨 색상 분석 및 분류
-- 🔍 CLIP 기반 유사 이미지 검색
-- 🖼️ Stable Diffusion 기반 이미지 생성
-- 🌐 Flask 웹 API 제공
+- 개 품종 자동 인식 (YOLO)
+- 색상 분석 및 분류
+- CLIP 기반 유사 이미지 검색
+- Stable Diffusion 기반 이미지 생성
+- Flask 웹 API 제공
 
 ## 설치 방법
 
@@ -70,7 +70,7 @@ python main.py --image path/to/image.jpg --debug --visualize
 
 ## 프로젝트 구조
 ```
-Server/
+AI/
 ├── main.py              # 메인 검색 및 생성 로직
 ├── app.py               # Flask 웹 애플리케이션
 ├── requirements.txt     # Python 의존성
@@ -80,9 +80,8 @@ Server/
 │   ├── model/           # YOLO 모델들 (다운로드 필요)
 │   ├── lora/            # LoRA 가중치들 (다운로드 필요)
 │   ├── CLIP/            # FAISS 인덱스들 (다운로드 필요)
-│   └── converted-model/ # Stable Diffusion 모델 (다운로드 필요)
-└── static/
-    └── upload/          # 업로드된 이미지들
+└── └── converted-model/ # Stable Diffusion 모델 (다운로드 필요)
+ 
 ```
 
 ## 주의사항
