@@ -1,0 +1,344 @@
+.mypage-wrapper {
+  display: flex;
+  padding: 2rem 5%;
+  box-sizing: border-box;
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.left-profile {
+  width: 250px;
+  flex-shrink: 0;
+}
+
+.profile-summary {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.edit-button {
+  background-color: #f0f0f0; 
+  color: #333;
+  border: 1px solid #ccc;
+  padding: 8px 16px;
+  border-radius: 5px; 
+  cursor: pointer; 
+  font-size: 14px; 
+  margin-top: 10px; 
+  transition: background-color 0.3s ease; 
+}
+
+.edit-button:hover {
+  background-color: #e0e0e0; 
+}
+
+.mypage-edit-wrapper {
+  padding: 40px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: #f9f9f9;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #555;
+}
+
+.form-group input {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+.submit-button {
+  padding: 12px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
+
+.error-message {
+  color: #dc3545;
+  font-weight: bold;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.success-message {
+  color: #28a745;
+  font-weight: bold;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+hr {
+  margin: 40px 0;
+  border: 0;
+  border-top: 1px solid #eee;
+}
+
+.password-edit-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: #f9f9f9;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.password-display {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.password-display input {
+  flex-grow: 1;
+  background-color: #e9ecef;
+  cursor: not-allowed;
+}
+
+.change-password-button,
+.cancel-button {
+  padding: 10px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.change-password-button {
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  transition: background-color 0.3s;
+}
+
+.change-password-button:hover {
+  background-color: #5a6268;
+}
+
+.cancel-button {
+  background-color: #fff;
+  color: #6c757d;
+  border: 1px solid #6c757d;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.cancel-button:hover {
+  background-color: #6c757d;
+  color: white;
+}
+.right-content {
+  flex: 1;
+}
+
+.mypage-tabs {
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #ccc;
+}
+
+.mypage-tabs .tab {
+  display: flex;
+  gap: 2rem;
+}
+
+.mypage-tabs button {
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  padding: 0.75rem 0;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #555;
+  cursor: pointer;
+  transition: border-bottom 0.2s ease, color 0.2s ease;
+}
+
+.mypage-tabs button.active {
+  border-bottom: 3px solid #000;
+  color: #000;
+}
+
+.tab-content {
+  background: #fff;
+  padding: 1.5rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  min-height: 300px; /* 📌 탭마다 높이 다르면 보기 싫을 때 고정 */
+}
+
+.tab-content h3 {
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 0.5rem;
+}
+
+.tab-content ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+}
+
+.mypage-edit-wrapper {
+  padding: 40px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: #f9f9f9;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #555;
+}
+
+.form-group input {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+.form-group input[disabled] {
+  background-color: #e9ecef;
+  cursor: not-allowed;
+}
+
+.submit-button {
+  padding: 12px 20px;
+  background-color: #000000c7;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+  background-color: #000;
+}
+
+.error-message {
+  color: #dc3545;
+  font-weight: bold;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.success-message {
+  color: #28a745;
+  font-weight: bold;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid #eee;
+  margin: 20px 0;
+}
+
+.mypage-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mypage-list li {
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.mypage-list li a {
+  text-decoration: none;
+  color: #333;
+  display: block;
+}
+
+.mypage-list li strong {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #222;
+}
+
+.mypage-list li .meta {
+  margin-top: 0.4rem;
+  font-size: 0.85rem;
+  color: #777;
+}
+
+/* hover 효과 */
+.mypage-list li:hover {
+  border-color: #f0f0f0;   
+  border-color: #bbb;    
+  box-shadow: 0 2px 6px rgba(59, 130, 246, 0.2);
+  transform: translateY(-2px); 
+}
+
+.mypage-list li:hover strong {
+  color: #111;
+}

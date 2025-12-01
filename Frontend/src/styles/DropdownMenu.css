@@ -1,0 +1,71 @@
+.nav-container {
+  display: flex;
+  justify-content: center;
+  background: #f8f8f8;
+  padding: 1rem 0;
+  border-bottom: 1px solid #ddd;
+  gap: 2rem;
+}
+
+.nav-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.nav-label {
+  cursor: pointer;
+  font-weight: bold;
+  color: #333;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.nav-label:hover {
+  color: #0077cc;
+  text-decoration: underline;
+}
+
+.mega-dropdown {
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px); /* 드롭다운 위치 아래로 띄우기 */
+  left: 0;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 1rem;
+  z-index: 999;
+  min-width: 480px;
+  gap: 2rem;
+  flex-wrap: nowrap;
+}
+
+.nav-item:hover .mega-dropdown {
+  display: flex;
+}
+
+.dropdown-column {
+  display: flex;
+  flex-direction: column;
+  min-width: 160px;
+}
+
+.dropdown-column h4 {
+  margin-bottom: 0.5rem;
+  font-size: 14px;
+  font-weight: bold;
+  color: #222;
+}
+
+.dropdown-column a {
+  text-decoration: none;
+  color: #333;
+  margin-bottom: 0.3rem;
+  font-size: 13px;
+}
+
+.dropdown-column a:hover {
+  color: #0077cc;
+  text-decoration: underline;
+}

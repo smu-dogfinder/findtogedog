@@ -1,0 +1,20 @@
+html {
+  overflow-y: scroll;
+}
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+}
+
+.ContentWrapper {
+  display: flex;
+  position: relative;
+}
+
+

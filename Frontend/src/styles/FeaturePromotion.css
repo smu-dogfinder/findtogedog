@@ -1,0 +1,80 @@
+/* 컨테이너가 가로 폭 100% 차지 */
+.feature-slider-container {
+  width: 100%;
+  background: linear-gradient(135deg, #fff8e1, #e1f5fe);
+  padding: 2rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 슬라이드 내부 스타일 */
+.feature-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 180px;
+  font-size: 1.5rem;
+  color: #333;
+  text-decoration: none;
+  font-weight: bold;
+  font-family: 'Do Hyeon', sans-serif;
+  transition: transform 0.3s;
+}
+
+.feature-slide:hover {
+  transform: scale(1.02);
+}
+
+.feature-title {
+  font-size: 1.8rem;
+  font-family: 'Do Hyeon';
+  margin-bottom: 0.5rem;
+  color: #222;
+}
+
+.feature-title.large {
+  font-size: 2.3rem;
+}
+
+.highlight-number {
+  font-size: 2.3rem;
+  color: #000;
+  margin-right: 0.5rem;
+}
+
+.feature-text p {
+  font-size: 1.2rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* 화살표 스타일 */
+.custom-prev,
+.custom-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  color: #333;
+  background: none;
+  padding: 0.2rem 0.6rem;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.custom-prev {
+  left: 1rem;
+}
+
+.custom-next {
+  right: 1rem;
+}
+
+/* 마우스 오버 시에만 화살표 보이게 */
+.feature-slider-container:hover .custom-prev,
+.feature-slider-container:hover .custom-next {
+  opacity: 1;
+}
