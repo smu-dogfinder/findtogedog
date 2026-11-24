@@ -1,4 +1,4 @@
-# Dog Finder Frontend
+# 함께찾개 프론트엔드
 
 반려견 찾기 서비스의 프론트엔드 프로젝트입니다.
 
@@ -12,12 +12,18 @@
 * **보호소 찾기:** Kakao Maps API를 활용한 보호소 위치 시각화 및 정보 제공.
 
   
+## 성견 예측과 유사견 검색 화면
+
+1. [검색 화면](src/pages/Lookup/LookupMain.jsx)에서 사진을 선택하고 미리보기로 확인합니다.
+2. [성견 예측 화면](src/pages/Lookup/PredictDog.jsx)에서 예측 이미지를 확인하고 유사견 검색을 요청합니다.
+3. [검색 결과 화면](src/pages/Lookup/SearchResultPage.jsx)에서 유사견 목록을 확인하고 상세 화면으로 이동합니다.
+
 ## 기술 스택
 
 | 구분 | 기술 스택 | 비고 |
 | :--- | :--- | :--- |
 | **Frontend** | React 19, Vite, React Router | 사용자 인터페이스 구현 및 라우팅 |
-| **Styling** | SCSS / Styled-Components (필요시 명시) | 컴포넌트 기반 스타일링 |
+| **Styling** | CSS, CSS Modules | 전역 및 화면별 스타일링 |
 | **API** | REST API | Spring Boot 기반의 백엔드 서버와 비동기 통신 |
 | **Map** | Kakao Maps API | 보호소 위치 및 지도 시각화 |
 
@@ -29,15 +35,20 @@
 - `src/contexts/` - React Context 파일들
 - `src/styles/` - 전역 스타일 및 유틸리티 CSS 파일
 
+## 로컬 실행
 
-  ## 실행 방법
-
-로컬 환경에서 프로젝트를 실행하는 방법입니다. (Node.js 및 npm 설치 필수)
+Node.js와 npm을 설치한 뒤 저장소 루트에서 실행합니다.
 
 ```bash
-# 1. 의존성 설치
-npm install
-
-# 2. 로컬 개발 환경 서버 실행 (http://localhost:5173 에서 확인 가능)
+cd Frontend
+npm ci
 npm run dev
 ```
+
+터미널에 표시된 주소(기본값 `http://localhost:5173`)에서 화면을 열 수 있습니다.
+
+### API 기능 확인
+
+- Vite 개발 서버는 `/api`와 `/auth` 요청을 [vite.config.js](vite.config.js)의 `BACKEND_URL`에 지정된 서버로 전달합니다. 기본값은 ngrok 터널 주소입니다. 다른 개발 서버를 사용한다면 이 값을 실행 중인 백엔드 주소로 수정한 뒤 Vite를 다시 시작하세요.
+- 공지 상세와 문의 수정 화면은 `VITE_API_URL`을 참조합니다. 해당 화면을 확인할 때는 `Frontend/.env.local`에 실행 중인 API 서버 주소를 지정하세요.
+- 예측과 유사견 검색까지 확인하려면 연결한 백엔드에서 해당 API가 동작해야 합니다. 백엔드 구성은 [백엔드 README](../Backend/README.md)를 참고하세요.
