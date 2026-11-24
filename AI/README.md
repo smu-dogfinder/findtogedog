@@ -1,90 +1,56 @@
-# 개 품종 검색 및 이미지 생성 시스템
+# 함께찾개 AI 서비스
 
-## 프로젝트 개요
-YOLOv8, CLIP, Stable Diffusion을 활용한 개 품종 검색 및 이미지 생성 시스템입니다. 업로드된 개 이미지를 분석하여 유사한 품종의 개를 찾고, 필요시 AI 이미지 생성 기능을 제공합니다.
+업로드한 강아지 사진이나 생성한 성견 예상 이미지를 기준으로 유사한 유기견을 검색합니다. [Spring Boot 백엔드](../Backend/README.md)가 업로드를 전달하고 검색 결과를 받아 동물 상세 정보와 결합합니다.
 
-## 주요 기능
-- 개 품종 자동 인식 (YOLO)
-- 색상 분석 및 분류
-- CLIP 기반 유사 이미지 검색
-- Stable Diffusion 기반 이미지 생성
-- Flask 웹 API 제공
+## 이미지 처리와 검색
 
-## 설치 방법
+- YOLO로 품종을 분류하고 배경을 분리합니다. 대표 색상을 추출하고 CIELAB 색 공간의 색상 차이를 검색 점수에 반영합니다.
+- 성견 예상 이미지는 Stable Diffusion 이미지 변환 파이프라인에서 품종별 LoRA와 IP-Adapter를 사용해 생성합니다.
+- CLIP ViT-B/32로 이미지 임베딩을 만든 뒤 FAISS 인덱스에서 후보를 찾습니다. 이미지 유사도, 색상, 품종 점수의 가중치는 검색 설정으로 조정할 수 있습니다.
 
-### 1. Python 환경 설정
+## 로컬 실행
+
+저장소 루트에서 `AI`로 이동한 뒤 해당 폴더를 작업 디렉터리로 사용합니다. 모델과 인덱스는 현재 디렉터리 기준의 상대 경로에서 읽습니다.
+
 ```bash
-# Python 3.8+ 설치 확인
-python --version
-
-# 가상환경 생성 (권장)
-python -m venv venv
-source venv/bin/activate  # Windows: venv\Scripts\activate
+cd AI
+python -m venv .venv
+# 가상환경을 활성화한 뒤 설치
+python -m pip install -r requirements.txt
 ```
 
-### 2. 의존성 설치
+[requirements.txt](requirements.txt)는 기존 환경의 고정 버전 목록으로, Windows 전용 패키지와 CUDA 11.8용 PyTorch 빌드를 포함합니다. 운영체제와 GPU 환경에 맞는 패키지 인덱스와 배포판으로 설치해야 합니다. 성견 이미지 생성 코드는 CUDA 지원 GPU를 사용합니다.
+
+실행 전에 아래 모델과 인덱스를 준비하세요. 예제 사진은 저장소에 있으며 모델 가중치와 인덱스는 별도 파일입니다.
+
+| 경로 | 용도 |
+| --- | --- |
+| `process/model/seg.pt`, `0818.pt`, `detect6.pt` | YOLO 분할 및 품종 분류 |
+| `process/converted-model/realistic-hypervae/` | Stable Diffusion 모델 |
+| `process/lora/` | 이미지 생성에 쓰는 LoRA 가중치 |
+| `process/CLIP/dog_index_img.faiss` | 이미지 검색 인덱스 |
+| `process/CLIP/dog_ids_img.npy`, `dog_colors_lab.npy`, `dog_breeds.npy` | 인덱스와 순서가 일치하는 동물 ID, 색상, 품종 |
+
+[app.py](app.py)를 `python app.py`로 실행하면 Flask 개발 서버가 로컬 포트 `5000`에서 시작합니다. 디버그 모드가 켜져 있으므로 로컬 개발 환경에서 사용하세요. [Kubernetes 매니페스트](k8s/)의 컨테이너 및 서비스 포트는 `8000`이며, 배포 이미지 내부의 실행 설정과 맞아야 합니다.
+
+## HTTP API
+
+두 경로 모두 `multipart/form-data`의 `image` 필드로 파일을 받습니다.
+
+| 메서드와 경로 | 처리 |
+| --- | --- |
+| `POST /search/uploaded` | 업로드 사진으로 유사 이미지 검색 |
+| `POST /search/generated` | 성견 예상 이미지 생성 후 생성 이미지로 유사 이미지 검색 |
+
+선택적 쿼리 파라미터는 `w_img`, `w_color`, `w_breed`, `sigma`입니다. 성공 응답에는 `status`, `results`, 사용한 이미지의 Base64 값인 `image`, `visualization`, `breed_used`, `color_used`가 포함됩니다.
+
+## 명령줄 실행
+
+[main.py](main.py)는 모델 로딩, 이미지 생성, 검색, 결과 저장을 담당합니다. `--no-post`를 사용하면 Spring 서버로 결과를 보내지 않고 로컬에서 분석할 수 있습니다.
+
 ```bash
-pip install -r requirements.txt
+python main.py --image path/to/image.jpg --no-post
+python main.py --image path/to/image.jpg --generate --no-post
 ```
 
-### 3. 모델 파일
-이 프로젝트는 다음 모델 파일들을 사용합니다:
-
-- **YOLO 모델들** (`process/model/` 폴더)
-- **Stable Diffusion 모델** (`process/converted-model/` 폴더)  
-- **LoRA 가중치들** (`process/lora/` 폴더)
-- **FAISS 검색 인덱스들** (`process/CLIP/` 폴더)
-
-**주의**: 대용량 모델 파일들은 Git에 포함되지 않습니다. 로컬 환경에서만 사용 가능합니다.
-
-## 사용법
-
-### 웹 서버 실행
-```bash
-python app.py
-```
-
-### CLI 사용
-```bash
-# 이미지 생성 후 검색
-python main.py --image path/to/image.jpg --generate
-
-# 업로드된 이미지로만 검색
-python main.py --image path/to/image.jpg
-
-# 디버그 모드
-python main.py --image path/to/image.jpg --debug --visualize
-```
-
-## API 엔드포인트
-
-### POST /search/generated
-이미지 생성 후 유사 이미지 검색
-- **입력**: 이미지 파일
-- **출력**: JSON 형태의 검색 결과
-
-### POST /search/uploaded
-업로드된 이미지로 직접 검색
-- **입력**: 이미지 파일
-- **출력**: JSON 형태의 검색 결과
-
-## 프로젝트 구조
-```
-AI/
-├── main.py              # 메인 검색 및 생성 로직
-├── app.py               # Flask 웹 애플리케이션
-├── requirements.txt     # Python 의존성
-├── process/
-│   ├── adapter/         # 샘플 이미지들
-│   ├── input/           # 테스트 이미지들
-│   ├── model/           # YOLO 모델들 (다운로드 필요)
-│   ├── lora/            # LoRA 가중치들 (다운로드 필요)
-│   ├── CLIP/            # FAISS 인덱스들 (다운로드 필요)
-└── └── converted-model/ # Stable Diffusion 모델 (다운로드 필요)
- 
-```
-
-## 주의사항
-- 대용량 모델 파일들은 Git에 포함되지 않습니다
-- 모델 파일들은 따로 구하셔야 합니다
-
+검색 결과는 `process/output/search_results.json`에 저장됩니다.
